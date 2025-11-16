@@ -1,0 +1,120 @@
+---
+const pageTitle = "Video Cursor Tracker – Blind Pixels Studio";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta
+      name="description"
+      content="Video Cursor Tracker is a desktop tool that highlights the cursor in videos so it's easier to see during tutorials, meetings, and recordings."
+    />
+  </head>
+  <body class="page">
+    <main class="detail layout" aria-labelledby="video-cursor-tracker-heading">
+      <a class="detail__back" href="/">← Back to Blind Pixels Studio</a>
+      <header class="detail__header">
+        <p class="detail__eyebrow">Desktop tool</p>
+        <h1 id="video-cursor-tracker-heading">Video Cursor Tracker</h1>
+        <p class="detail__lede">
+          A desktop tool that highlights the cursor in videos so it's easier to
+          see during tutorials, meetings, and recordings.
+        </p>
+      </header>
+      <section class="detail__section">
+        <h2>Who it's for</h2>
+        <p>
+          Creators, educators, and teams who share screen recordings and want
+          their audience to follow the cursor without effort.
+        </p>
+      </section>
+      <section class="detail__section">
+        <h2>What it does</h2>
+        <ul>
+          <li>Adds a clear, high-contrast highlight around the cursor.</li>
+          <li>Makes cursor movement stand out in recorded videos.</li>
+          <li>Helps viewers with low vision or small screens follow along.</li>
+        </ul>
+      </section>
+      <section class="detail__section">
+        <h2>Download</h2>
+        <p>
+          When you're ready, this section can link to installers or a store page.
+          For now, it describes how you plan to ship Video Cursor Tracker.
+        </p>
+      </section>
+    </main>
+  </body>
+  <style lang="css">
+    body.page {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top left, #14213d 0%, #07090f 60%);
+      color: #f9fafb;
+    }
+
+    .layout {
+      width: min(960px, 100% - 3rem);
+      margin: 0 auto;
+      padding: 3.5rem 0 4rem;
+    }
+
+    .detail__back {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #bfdbfe;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .detail__back:hover,
+    .detail__back:focus {
+      text-decoration: underline;
+    }
+
+    .detail__header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 2.8rem);
+    }
+
+    .detail__eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      color: rgba(191, 219, 254, 0.8);
+      margin-bottom: 0.75rem;
+    }
+
+    .detail__lede {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(226, 232, 255, 0.86);
+    }
+
+    .detail__section {
+      margin-top: 2.5rem;
+    }
+
+    .detail__section h2 {
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    .detail__section p,
+    .detail__section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(226, 232, 255, 0.9);
+    }
+
+    .detail__section ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+  </style>
+</html>
