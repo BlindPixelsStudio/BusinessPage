@@ -1,0 +1,116 @@
+---
+const pageTitle = "Message sent – Blind Pixels Studio";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta
+      name="description"
+      content="Confirmation screen letting you know your message was sent to Blind Pixels Studio."
+    />
+  </head>
+  <body class="page">
+    <main class="layout" aria-labelledby="sent-heading">
+      <a class="sent__back" href="/">← Back to Blind Pixels Studio</a>
+      <section class="sent__card">
+        <h1 id="sent-heading">Message sent</h1>
+        <p>
+          Thanks for reaching out to Blind Pixels Studio. If your message needs a reply,
+          we'll get back to you as soon as we can.
+        </p>
+        <p class="sent__secondary">
+          You can safely close this tab or go back to exploring the apps and tools.
+        </p>
+        <a class="sent__primary" href="/">Return to homepage</a>
+      </section>
+    </main>
+  </body>
+  <style lang="css">
+    body.page {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top left, #14213d 0%, #07090f 60%);
+      color: #f9fafb;
+    }
+
+    .layout {
+      width: min(720px, 100% - 3rem);
+      margin: 0 auto;
+      padding: 3.5rem 0 5rem;
+    }
+
+    .sent__back {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #bfdbfe;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .sent__back:hover,
+    .sent__back:focus {
+      text-decoration: underline;
+    }
+
+    .sent__card {
+      padding: 2.5rem 2.25rem;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92));
+      border: 1px solid rgba(148, 163, 209, 0.35);
+      box-shadow: 0 18px 35px rgba(7, 10, 22, 0.6);
+    }
+
+    .sent__card h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2.1rem, 4vw, 2.7rem);
+    }
+
+    .sent__card p {
+      margin: 0;
+      margin-top: 0.75rem;
+      color: rgba(226, 232, 255, 0.9);
+      line-height: 1.7;
+    }
+
+    .sent__secondary {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: rgba(156, 163, 175, 0.98);
+    }
+
+    .sent__primary {
+      display: inline-flex;
+      margin-top: 1.75rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      background: linear-gradient(120deg, #4f46e5, #2563eb);
+      color: #eff6ff;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.5);
+    }
+
+    .sent__primary:hover,
+    .sent__primary:focus {
+      background: linear-gradient(120deg, #4338ca, #1d4ed8);
+    }
+
+    @media (max-width: 640px) {
+      .layout {
+        width: min(100%, 100% - 2.5rem);
+        padding: 3rem 0 4.5rem;
+      }
+
+      .sent__card {
+        padding: 2.25rem 1.75rem;
+      }
+    }
+  </style>
+</html>
