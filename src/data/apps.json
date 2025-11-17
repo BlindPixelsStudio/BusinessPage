@@ -1,0 +1,47 @@
+[
+  {
+    "id": "see-my-eyes",
+    "title": "See My Eyes",
+    "description": "An accessibility app that helps people with low vision follow cursors in screen-shares and videos.",
+    "platform": "iOS",
+    "comingSoon": false,
+    "primary": {
+      "href": "/see-my-eyes",
+      "label": "Learn more"
+    },
+    "secondary": {
+      "href": "/privacy/see-my-eyes",
+      "label": "Privacy Policy"
+    }
+  },
+  {
+    "id": "ai-board-game-rules",
+    "title": "AI Board Game Rules",
+    "description": "A web app that answers board game rule questions in plain language.",
+    "platform": "Web",
+    "comingSoon": false,
+    "primary": {
+      "href": "https://www.boardgamerules.ai",
+      "label": "Open app"
+    },
+    "secondary": {
+      "href": "/privacy/ai-board-game-rules",
+      "label": "Privacy Policy"
+    }
+  },
+  {
+    "id": "video-cursor-tracker",
+    "title": "Video Cursor Tracker",
+    "description": "A desktop tool that highlights the cursor in videos so it's easier to see during tutorials, meetings, and recordings.",
+    "platform": "Windows",
+    "comingSoon": false,
+    "primary": {
+      "href": "/video-cursor-tracker",
+      "label": "Learn more"
+    },
+    "secondary": {
+      "href": "/privacy/video-cursor-tracker",
+      "label": "Privacy Policy"
+    }
+  }
+]

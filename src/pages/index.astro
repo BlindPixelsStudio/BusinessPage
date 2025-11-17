@@ -1,47 +1,5 @@
 ---
-const apps = [
-	{
-		id: "see-my-eyes",
-		title: "See My Eyes",
-		description:
-			"An accessibility app that helps people with low vision follow cursors in screen-shares and videos.",
-		primary: {
-			href: "/see-my-eyes",
-			label: "Learn more",
-		},
-		secondary: {
-			href: "/privacy/see-my-eyes",
-			label: "Privacy Policy",
-		},
-	},
-	{
-		id: "ai-board-game-rules",
-		title: "AI Board Game Rules",
-		description: "A web app that answers board game rule questions in plain language.",
-		primary: {
-			href: "https://www.boardgamerules.ai",
-			label: "Open app",
-		},
-		secondary: {
-			href: "/privacy/ai-board-game-rules",
-			label: "Privacy Policy",
-		},
-	},
-	{
-		id: "video-cursor-tracker",
-		title: "Video Cursor Tracker",
-		description:
-			"A desktop tool that highlights the cursor in videos so it's easier to see during tutorials, meetings, and recordings.",
-		primary: {
-			href: "/video-cursor-tracker",
-			label: "Learn more",
-		},
-		secondary: {
-			href: "/privacy/video-cursor-tracker",
-			label: "Privacy Policy",
-		},
-	},
-];
+import apps from "../data/apps.json";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -93,10 +51,16 @@ const currentYear = new Date().getFullYear();
 				<div class="apps__grid">
 					{apps.map((app) => (
 						<article class="app-card" id={app.id}>
-							<h3>{app.title}</h3>
+							<div class="app-card__header">
+								<h3>{app.title}</h3>
+								<span class="app-card__platform">{app.platform}</span>
+								{app.comingSoon && <span class="app-card__badge">Coming Soon</span>}
+							</div>
 							<p>{app.description}</p>
 							<div class="app-card__actions">
-								<a class="app-card__primary" href={app.primary.href}>{app.primary.label}</a>
+								<a class="app-card__primary" href={app.primary.href} target="_blank" rel="noopener noreferrer">
+									{app.primary.label}
+								</a>
 								<a class="app-card__secondary" href={app.secondary.href}>{app.secondary.label}</a>
 							</div>
 						</article>
@@ -108,7 +72,6 @@ const currentYear = new Date().getFullYear();
 			<p>&copy; {currentYear} Blind Pixels Studio. All rights reserved.</p>
 			<div class="footer__links" aria-label="Secondary navigation">
 				<a href="/contact">Contact</a>
-				<a href="#apps-heading">Apps</a>
 				<a href="/privacy">Privacy</a>
 			</div>
 		</footer>
@@ -305,6 +268,37 @@ const currentYear = new Date().getFullYear();
 			color: #f8fafc;
 		}
 
+		.app-card__header {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			flex-wrap: wrap;
+		}
+
+		.app-card__badge {
+			display: inline-block;
+			padding: 0.25rem 0.65rem;
+			border-radius: 999px;
+			background: rgba(251, 191, 36, 0.2);
+			border: 1px solid rgba(251, 191, 36, 0.4);
+			color: #fbbf24;
+			font-size: 0.75rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.app-card__platform {
+			display: inline-block;
+			padding: 0.25rem 0.65rem;
+			border-radius: 999px;
+			background: rgba(99, 102, 241, 0.15);
+			border: 1px solid rgba(99, 102, 241, 0.3);
+			color: #a5b4fc;
+			font-size: 0.75rem;
+			font-weight: 600;
+		}
+
 		.app-card p {
 			margin: 0;
 			font-size: 1rem;
@@ -336,6 +330,17 @@ const currentYear = new Date().getFullYear();
 		.app-card__primary:hover,
 		.app-card__primary:focus {
 			background: rgba(37, 99, 235, 1);
+		}
+
+		.app-card__primary--disabled {
+			background: rgba(71, 85, 105, 0.5);
+			color: rgba(148, 163, 184, 0.7);
+			cursor: not-allowed;
+		}
+
+		.app-card__primary--disabled:hover,
+		.app-card__primary--disabled:focus {
+			background: rgba(71, 85, 105, 0.5);
 		}
 
 		.app-card__secondary {
