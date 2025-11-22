@@ -2,7 +2,7 @@
 
 This repo contains the Astro-based landing page for **Blind Pixels Studio**. It showcases accessibility-focused apps (like **See My Eyes**, **AI Board Game Rules**, and **Video Cursor Tracker**), along with donation and contact flows.
 
-The apps shown on the homepage are driven by a JSON config file so you can add or update apps without touching layout code.
+The apps shown on the homepage are driven by a JSON config file so you can add or update apps without touching layout code
 
 ---
 
