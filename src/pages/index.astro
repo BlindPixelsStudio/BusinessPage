@@ -1,5 +1,6 @@
 ---
 import apps from "../data/apps.json";
+import "../styles/global.css";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -47,16 +48,29 @@ const currentYear = new Date().getFullYear();
 				<h2 id="apps-heading">Apps &amp; Tools</h2>
 				<div class="apps__grid">
 					{apps.map((app) => (
-						<article class="app-card" id={app.id}>
-							<div class="app-card__header">
-								<h3>{app.title}</h3>
-								<span class="app-card__platform">{app.platform}</span>
-								{app.comingSoon && <span class="app-card__badge">Coming Soon</span>}
-							</div>
-							<p>{app.description}</p>
+								<article class="app-card" id={app.id}>
+									<div class="app-card__header">
+										<h3 class="app-card__title">{app.title}</h3>
+										<div class="app-card__meta" aria-label="App meta information">
+											<span class="app-card__platform">{app.platform}</span>
+											{app.comingSoon && <span class="app-card__badge">Coming Soon</span>}
+										</div>
+									</div>
+									<p>{app.description}</p>
 							<div class="app-card__actions">
-								<a class="app-card__primary" href={app.primary.href} target="_blank" rel="noopener noreferrer">
+								<a
+									class="app-card__primary"
+									href={app.primary.href}
+									target={app.primary.href.startsWith("http") ? "_blank" : undefined}
+									rel={app.primary.href.startsWith("http") ? "noopener noreferrer" : undefined}
+								>
 									{app.primary.label}
+									{app.primary.href.startsWith("http") && (
+										<span style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;">
+											<span aria-hidden="true" style="display:inline-block;transform:translateY(1px);">🔗</span>
+											<span class="sr-only">(opens in a new tab)</span>
+										</span>
+									)}
 								</a>
 								<a class="app-card__secondary" href={app.secondary.href}>{app.secondary.label}</a>
 							</div>
@@ -267,9 +281,20 @@ const currentYear = new Date().getFullYear();
 
 		.app-card__header {
 			display: flex;
-			align-items: center;
-			gap: 0.75rem;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+
+		.app-card__title {
+			margin: 0;
+		}
+
+		.app-card__meta {
+			display: flex;
+			gap: 0.5rem;
 			flex-wrap: wrap;
+			align-items: center;
 		}
 
 		.app-card__badge {

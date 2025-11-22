@@ -33,7 +33,7 @@
     "id": "video-cursor-tracker",
     "title": "Video Cursor Tracker",
     "description": "A desktop tool that highlights the cursor in videos so it's easier to see during tutorials, meetings, and recordings.",
-    "platform": "Windows",
+    "platform": "Web",
     "comingSoon": false,
     "primary": {
       "href": "/video-cursor-tracker",
