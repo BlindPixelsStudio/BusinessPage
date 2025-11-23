@@ -10,41 +10,78 @@ const currentYear = new Date().getFullYear();
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Blind Pixels Studio crafts accessibility-focused apps and tools." />
-		<title>Blind Pixels Studio</title>
+		<meta name="description" content="I like to make apps and tools that help people with low vision. Like me." />
+		<title>Blind Pixels Studio – Accessibility-first apps &amp; tools</title>
+		
+		<!-- Open Graph / Social Media -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Blind Pixels Studio – Accessibility-first apps &amp; tools" />
+		<meta property="og:description" content="I like to make apps and tools that help people with low vision. Like me.. Built by a low-vision developer." />
+		<meta property="og:image" content="/Assets/banner_clean.png" />
+		<meta property="og:url" content="https://blindpixelsstudio.com" />
+		
 	</head>
 	<body class="page">
 		<a class="skip-link" href="#main-content">Skip to main content</a>
+		<nav class="top-nav" role="navigation" aria-label="Primary navigation">
+			<div class="top-nav__container">
+				<a href="/" class="top-nav__logo">Blind Pixels Studio</a>
+				<ul class="top-nav__links">
+					<li><a href="#about">About</a></li>
+					<li><a href="#apps">Apps &amp; Tools</a></li>
+					<li><a href="#support">Support</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
 		<main id="main-content" class="layout">
 			<header class="hero">
-				<div class="hero__banner">
-					<img src="/Assets/banner_clean.png" alt="Pixel art of a developer working at a desk with dual monitors." />
-				</div>
 				<div class="hero__text">
 					<p class="hero__eyebrow">Accessibility-first apps &amp; tools</p>
-					<h1 class="hero__title">Blind Pixels Studio</h1>
+					<h1 class="hero__title">I like to make apps and tools that help people with low vision. Like me.</h1>
 					<p class="hero__subtitle">
-						We craft indie software that makes cursors, interfaces, and rules easier to see and understand for everyone.
+						Built by a low-vision developer, for anyone who struggles to follow cursors, tiny UI, or dense rulebooks.
 					</p>
 					<div class="hero__actions">
+						<a class="primary-cta" href="https://www.boardgamerules.ai">
+							Try Board Game Rules
+						</a>
 						<a class="support-button" href="https://buymeacoffee.com/blindpixels" rel="noopener" target="_blank">
 							<span class="support-button__icon" aria-hidden="true">
 								<img src="/Assets/coffeeCup.png" alt="" width="22" height="22" />
 							</span>
-							<span class="support-button__label">Buy me a coffee</span>
+							<span class="support-button__label">Support the studio</span>
 						</a>
 					</div>
+					<p class="hero__donation-note">Donations help fund free accessibility tools.</p>
+				</div>
+				<div class="hero__image">
+					<img src="/Assets/sideview.png" alt="Pixel art of a developer working at a desk with dual monitors." />
 				</div>
 			</header>
-			<section class="about" aria-labelledby="about-heading">
-				<h2 id="about-heading">About the studio</h2>
-				<p>
-					Blind Pixels Studio is an indie shop focused on accessibility-first software.
-					We build small, opinionated tools that make digital spaces easier to see,
-					teach, and share—starting with cursors, interfaces, and game rules.
-				</p>
+			<section id="about" class="about" aria-labelledby="about-heading">
+				<div class="about__content">
+					<h2 id="about-heading">About the studio</h2>
+					<p>
+						Blind Pixels Studio is a one-person indie shop building accessibility-first software 
+						that makes digital experiences easier for everyone—especially low-vision users, educators, 
+						gamers, and remote teams.
+					</p>
+					<p>
+						Every tool I create is born from real frustrations: struggling to follow tiny cursors 
+						in screen-shares, squinting at complex board game rulebooks, or missing important details 
+						in recorded tutorials. We design small, focused solutions that solve real problems.
+					</p>
+					<p class="about__social-proof">
+						<strong>Led by a low-vision developer</strong> who understands these challenges firsthand, 
+						our mission is simple: create tools that help people see better, teach better, and play better.
+					</p>
+				</div>
+				<div class="about__image">
+					<img src="/Assets/banner_clean.png" alt="Pixel art of a developer working at a desk with dual monitors." />
+				</div>
 			</section>
-			<section class="apps" aria-labelledby="apps-heading">
+			<section id="apps" class="apps" aria-labelledby="apps-heading">
 				<h2 id="apps-heading">Apps &amp; Tools</h2>
 				<div class="apps__grid">
 					{apps.map((app) => (
@@ -52,11 +89,14 @@ const currentYear = new Date().getFullYear();
 									<div class="app-card__header">
 										<h3 class="app-card__title">{app.title}</h3>
 										<div class="app-card__meta" aria-label="App meta information">
-											<span class="app-card__platform">{app.platform}</span>
+											<span class="app-card__platform">
+												<span aria-hidden="true">{app.platformIcon}</span> {app.platform}
+											</span>
+											{app.status && <span class="app-card__status">{app.status}</span>}
 											{app.comingSoon && <span class="app-card__badge">Coming Soon</span>}
 										</div>
 									</div>
-									<p>{app.description}</p>
+									{app.tagline && <p class="app-card__tagline">{app.tagline}</p>}
 							<div class="app-card__actions">
 								<a
 									class="app-card__primary"
@@ -72,14 +112,40 @@ const currentYear = new Date().getFullYear();
 										</span>
 									)}
 								</a>
-								<a class="app-card__secondary" href={app.secondary.href}>{app.secondary.label}</a>
 							</div>
+							{app.tertiary && (
+								<a class="app-card__tertiary" href={app.tertiary.href}>{app.tertiary.label}</a>
+							)}
+							<a class="app-card__secondary" href={app.secondary.href}>{app.secondary.label}</a>
 						</article>
 					))}
 				</div>
 			</section>
+			<section id="support" class="support" aria-labelledby="support-heading">
+				<h2 id="support-heading">Support the studio</h2>
+				<p>
+					Your support helps keep our accessibility tools free and accessible to everyone who needs them. 
+					Donations fund hosting costs, development time, testing with real users, and shipping new features 
+					that make cursors, interfaces, and rules easier to see and understand.
+				</p>
+				<p>
+					Every contribution—no matter the size—helps us continue building tools that make digital spaces 
+					more accessible for people with low vision, educators, gamers, and teams everywhere.
+				</p>
+				<div class="support__actions">
+					<a class="support-cta" href="https://buymeacoffee.com/blindpixels" rel="noopener" target="_blank">
+						<span class="support-cta__icon" aria-hidden="true">
+							<img src="/Assets/coffeeCup.png" alt="" width="24" height="24" />
+						</span>
+					<span class="support-cta__text">
+						<span class="support-cta__label">Support the studio</span>
+						<span class="support-cta__sublabel">Buy me a coffee</span>
+					</span>
+					</a>
+				</div>
+			</section>
 		</main>
-		<footer class="footer">
+		<footer id="contact" class="footer">
 			<p>&copy; {currentYear} Blind Pixels Studio. All rights reserved.</p>
 			<div class="footer__links" aria-label="Secondary navigation">
 				<a href="/contact">Contact</a>
@@ -93,6 +159,16 @@ const currentYear = new Date().getFullYear();
 			font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 			background-color: #07090f;
 			color: #f1f5ff;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		*:focus-visible {
+			outline: 3px solid #60a5fa;
+			outline-offset: 3px;
+			border-radius: 4px;
 		}
 
 		* {
@@ -124,6 +200,107 @@ const currentYear = new Date().getFullYear();
 			transform: translate(-50%, 20%);
 		}
 
+		.announcement-bar {
+			background: linear-gradient(90deg, rgba(59, 130, 246, 0.12) 0%, rgba(37, 99, 235, 0.08) 100%);
+			border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+			padding: 0.75rem 0;
+		}
+
+		.announcement-bar__container {
+			width: min(1080px, 100% - 3rem);
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+
+		.announcement-bar__text {
+			margin: 0;
+			font-size: 0.875rem;
+			color: rgba(191, 219, 254, 0.9);
+			text-align: center;
+		}
+
+		.announcement-bar__label {
+			font-weight: 700;
+			color: #60a5fa;
+		}
+
+		.announcement-bar__link {
+			font-size: 0.875rem;
+			color: #60a5fa;
+			text-decoration: none;
+			font-weight: 600;
+			padding: 0.25rem 0.75rem;
+			border-radius: 6px;
+			border: 1px solid rgba(96, 165, 250, 0.3);
+			background: rgba(96, 165, 250, 0.1);
+			transition: all 0.2s ease;
+		}
+
+		.announcement-bar__link:hover,
+		.announcement-bar__link:focus {
+			background: rgba(96, 165, 250, 0.2);
+			border-color: rgba(96, 165, 250, 0.5);
+		}
+
+		.top-nav {
+			position: sticky;
+			top: 0;
+			z-index: 100;
+			background: rgba(7, 9, 15, 0.95);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid rgba(148, 163, 209, 0.15);
+			box-shadow: 0 4px 16px rgba(7, 9, 15, 0.5);
+		}
+
+		.top-nav__container {
+			width: min(1080px, 100% - 3rem);
+			margin: 0 auto;
+			padding: 1rem 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 2rem;
+		}
+
+		.top-nav__logo {
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: #f8fafc;
+			text-decoration: none;
+			letter-spacing: -0.01em;
+		}
+
+		.top-nav__logo:hover,
+		.top-nav__logo:focus {
+			color: #bfdbfe;
+		}
+
+		.top-nav__links {
+			display: flex;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.top-nav__links a {
+			color: rgba(191, 219, 254, 0.85);
+			text-decoration: none;
+			font-size: 0.95rem;
+			font-weight: 500;
+			transition: color 0.2s ease;
+		}
+
+		.top-nav__links a:hover,
+		.top-nav__links a:focus {
+			color: #f8fafc;
+		}
+
 		.layout {
 			width: min(1080px, 100% - 3rem);
 			margin: 0 auto;
@@ -134,6 +311,13 @@ const currentYear = new Date().getFullYear();
 			display: grid;
 			gap: 3rem;
 			align-items: center;
+			justify-items: center;
+			text-align: center;
+			padding: 3rem 0;
+		}
+
+		.hero__image {
+			display: none;
 		}
 
 		.hero__banner {
@@ -170,9 +354,10 @@ const currentYear = new Date().getFullYear();
 
 		.hero__title {
 			margin: 0;
-			font-size: clamp(2.75rem, 5vw, 3.75rem);
+			font-size: clamp(1.75rem, 4vw, 2.5rem);
 			letter-spacing: -0.02em;
 			color: #f8fafc;
+			line-height: 1.2;
 		}
 
 		.hero__subtitle {
@@ -189,6 +374,32 @@ const currentYear = new Date().getFullYear();
 			background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9));
 			border: 1px solid rgba(148, 163, 209, 0.2);
 			box-shadow: 0 18px 35px rgba(7, 10, 22, 0.5);
+			scroll-margin-top: 5rem;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3rem;
+			align-items: center;
+		}
+
+		.about__content {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.about__image {
+			position: relative;
+			border-radius: 16px;
+			overflow: hidden;
+			background: radial-gradient(circle at top, rgba(20, 33, 61, 0.6), rgba(7, 9, 15, 1));
+			box-shadow: 0 12px 30px rgba(10, 14, 33, 0.45);
+		}
+
+		.about__image img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
 		}
 
 		.about h2 {
@@ -199,15 +410,67 @@ const currentYear = new Date().getFullYear();
 
 		.about p {
 			margin: 0;
-			max-width: 54ch;
+			max-width: 100%;
 			font-size: 1rem;
 			line-height: 1.7;
 			color: rgba(226, 232, 255, 0.9);
 		}
 
+		.about p + p {
+			margin-top: 1rem;
+		}
+
+		.about__social-proof {
+			margin-top: 1.5rem !important;
+			padding: 1.25rem 1.5rem;
+			background: rgba(59, 130, 246, 0.08);
+			border-left: 3px solid rgba(59, 130, 246, 0.5);
+			border-radius: 8px;
+			max-width: 100% !important;
+		}
+
+		.about__social-proof strong {
+			color: #93c5fd;
+		}
+
 		.hero__actions {
 			display: flex;
 			justify-content: center;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+
+		.primary-cta {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.875rem 1.8rem;
+			border-radius: 999px;
+			background: linear-gradient(135deg, #3b82f6, #2563eb);
+			color: #ffffff;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 1.05rem;
+			box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.primary-cta:hover,
+		.primary-cta:focus {
+			transform: translateY(-2px);
+			box-shadow: 0 16px 30px rgba(59, 130, 246, 0.6);
+		}
+
+		.primary-cta:focus-visible {
+			outline: 3px solid #93c5fd;
+			outline-offset: 4px;
+		}
+
+		.hero__donation-note {
+			margin-top: 0.75rem;
+			font-size: 0.875rem;
+			color: rgba(209, 215, 255, 0.65);
+			text-align: center;
 		}
 
 		.support-button {
@@ -230,6 +493,11 @@ const currentYear = new Date().getFullYear();
 			box-shadow: 0 16px 30px rgba(249, 115, 22, 0.5);
 		}
 
+		.support-button:focus-visible {
+			outline: 3px solid #fbbf24;
+			outline-offset: 4px;
+		}
+
 		.support-button__icon img {
 			display: block;
 		}
@@ -240,6 +508,7 @@ const currentYear = new Date().getFullYear();
 
 		.apps {
 			margin-top: 5rem;
+			scroll-margin-top: 5rem;
 		}
 
 		.apps h2 {
@@ -321,6 +590,33 @@ const currentYear = new Date().getFullYear();
 			font-weight: 600;
 		}
 
+		.app-card__status {
+			display: inline-block;
+			padding: 0.25rem 0.65rem;
+			border-radius: 999px;
+			background: rgba(34, 197, 94, 0.15);
+			border: 1px solid rgba(34, 197, 94, 0.3);
+			color: #86efac;
+			font-size: 0.75rem;
+			font-weight: 600;
+		}
+
+		.app-card__tagline {
+			margin: 0;
+			font-size: 1.1rem;
+			font-weight: 700;
+			line-height: 1.4;
+			color: #93c5fd;
+		}
+
+		.app-card__for-who {
+			margin: 0;
+			font-size: 0.875rem;
+			line-height: 1.5;
+			color: rgba(209, 215, 255, 0.7);
+			font-style: italic;
+		}
+
 		.app-card p {
 			margin: 0;
 			font-size: 1rem;
@@ -334,24 +630,29 @@ const currentYear = new Date().getFullYear();
 			gap: 0.9rem;
 			align-items: center;
 			flex-wrap: wrap;
+			margin-top: 0.75rem;
 		}
 
 		.app-card__primary {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			padding: 0.55rem 1.2rem;
-			border-radius: 999px;
-			background: rgba(59, 130, 246, 0.95);
-			color: #eff6ff;
+			padding: 0.5rem 1rem;
+			border-radius: 8px;
+			background: rgba(59, 130, 246, 0.1);
+			border: 1px solid rgba(59, 130, 246, 0.4);
+			color: #93c5fd;
 			text-decoration: none;
 			font-weight: 600;
-			font-size: 0.95rem;
+			font-size: 0.875rem;
+			transition: all 0.2s ease;
 		}
 
 		.app-card__primary:hover,
 		.app-card__primary:focus {
-			background: rgba(37, 99, 235, 1);
+			background: rgba(59, 130, 246, 0.2);
+			border-color: rgba(59, 130, 246, 0.6);
+			color: #bfdbfe;
 		}
 
 		.app-card__primary--disabled {
@@ -366,14 +667,113 @@ const currentYear = new Date().getFullYear();
 		}
 
 		.app-card__secondary {
-			font-size: 0.9rem;
-			color: rgba(191, 219, 254, 0.9);
+			font-size: 0.75rem;
+			color: rgba(148, 163, 184, 0.6);
 			text-decoration: none;
+			transition: color 0.2s ease;
 		}
 
 		.app-card__secondary:hover,
 		.app-card__secondary:focus {
+			color: rgba(148, 163, 184, 0.9);
 			text-decoration: underline;
+		}
+
+		.app-card__tertiary {
+			display: inline-block;
+			margin-top: 0.5rem;
+			font-size: 0.875rem;
+			color: rgba(148, 163, 184, 0.8);
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+
+		.app-card__tertiary:hover,
+		.app-card__tertiary:focus {
+			color: rgba(226, 232, 240, 0.9);
+			text-decoration: underline;
+		}
+
+		.support {
+			margin-top: 5rem;
+			padding: 3rem 2.5rem;
+			border-radius: 24px;
+			background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
+			border: 1px solid rgba(251, 191, 36, 0.25);
+			box-shadow: 0 18px 35px rgba(7, 10, 22, 0.5);
+			text-align: center;
+			scroll-margin-top: 5rem;
+		}
+
+		.support h2 {
+			margin-top: 0;
+			margin-bottom: 1.5rem;
+			font-size: clamp(2rem, 4vw, 2.4rem);
+			color: #fbbf24;
+		}
+
+		.support p {
+			margin: 0 auto;
+			max-width: 60ch;
+			font-size: 1.05rem;
+			line-height: 1.7;
+			color: rgba(226, 232, 255, 0.9);
+		}
+
+		.support p + p {
+			margin-top: 1.25rem;
+		}
+
+		.support__actions {
+			margin-top: 2rem;
+			display: flex;
+			justify-content: center;
+		}
+
+		.support-cta {
+			display: inline-flex;
+			align-items: center;
+			gap: 1rem;
+			padding: 1.25rem 2rem;
+			border-radius: 16px;
+			background: linear-gradient(120deg, #fbbf24, #f97316);
+			color: #0f172a;
+			text-decoration: none;
+			box-shadow: 0 16px 30px rgba(249, 115, 22, 0.4);
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.support-cta:hover,
+		.support-cta:focus {
+			transform: translateY(-3px);
+			box-shadow: 0 20px 40px rgba(249, 115, 22, 0.6);
+		}
+
+		.support-cta:focus-visible {
+			outline: 3px solid #fbbf24;
+			outline-offset: 4px;
+		}
+
+		.support-cta__icon img {
+			display: block;
+		}
+
+		.support-cta__text {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.25rem;
+		}
+
+		.support-cta__label {
+			font-size: 1.1rem;
+			font-weight: 700;
+		}
+
+		.support-cta__sublabel {
+			font-size: 0.875rem;
+			font-weight: 500;
+			opacity: 0.85;
 		}
 
 		.footer {
@@ -406,16 +806,39 @@ const currentYear = new Date().getFullYear();
 		@media (min-width: 960px) {
 			.hero {
 				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				text-align: left;
+				justify-items: start;
+			}
+
+			.hero__image {
+				display: block;
+				position: relative;
+				border-radius: 20px;
+				overflow: hidden;
+				background: radial-gradient(circle at top, rgba(20, 33, 61, 0.6), rgba(7, 9, 15, 1));
+				box-shadow: 0 18px 45px rgba(10, 14, 33, 0.45);
+			}
+
+			.hero__image img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 
 			.hero__text {
+				max-width: none;
 				text-align: left;
-				margin: 0;
 				justify-items: start;
 			}
 
 			.hero__actions {
 				justify-content: flex-start;
+			}
+
+			.hero__donation-note {
+				text-align: left;
 			}
 		}
 
@@ -425,8 +848,30 @@ const currentYear = new Date().getFullYear();
 				width: min(100%, 100% - 2.5rem);
 			}
 
-			.hero__banner {
+			.about {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+
+			.about__image {
 				order: -1;
+			}
+
+			.top-nav__container {
+				width: min(100%, 100% - 2.5rem);
+				flex-direction: column;
+				gap: 1rem;
+				padding: 0.75rem 0;
+			}
+
+			.top-nav__links {
+				gap: 1.25rem;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.top-nav__links a {
+				font-size: 0.875rem;
 			}
 		}
 	</style>

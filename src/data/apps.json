@@ -2,12 +2,14 @@
   {
     "id": "see-my-eyes",
     "title": "See My Eyes",
-    "description": "An accessibility app that helps people with low vision follow cursors in screen-shares and videos.",
+    "tagline": "See through the lens of others with different eye conditions.",
     "platform": "iOS",
-    "comingSoon": false,
+    "platformIcon": "📱",
+    "status": "TestFlight beta",
+    "comingSoon": true,
     "primary": {
       "href": "/see-my-eyes",
-      "label": "Learn more"
+      "label": "Learn about See My Eyes"
     },
     "secondary": {
       "href": "/privacy/see-my-eyes",
@@ -17,12 +19,18 @@
   {
     "id": "ai-board-game-rules",
     "title": "AI Board Game Rules",
-    "description": "A web app that answers board game rule questions in plain language.",
+    "tagline": "Ask rules questions in plain English.",
     "platform": "Web",
+    "platformIcon": "🌐",
+    "status": "Live now",
     "comingSoon": false,
     "primary": {
       "href": "https://www.boardgamerules.ai",
-      "label": "Open app"
+      "label": "Open AI Board Game Rules"
+    },
+    "tertiary": {
+      "href": "/ai-board-game-rules",
+      "label": "Learn more"
     },
     "secondary": {
       "href": "/privacy/ai-board-game-rules",
@@ -32,12 +40,14 @@
   {
     "id": "video-cursor-tracker",
     "title": "Video Cursor Tracker",
-    "description": "A desktop tool that highlights the cursor in videos so it's easier to see during tutorials, meetings, and recordings.",
-    "platform": "Web",
+    "tagline": "Highlight cursors in recorded videos.",
+    "platform": "Desktop",
+    "platformIcon": "🖥️",
+    "status": "Beta",
     "comingSoon": false,
     "primary": {
       "href": "/video-cursor-tracker",
-      "label": "Learn more"
+      "label": "Learn about Video Cursor Tracker"
     },
     "secondary": {
       "href": "/privacy/video-cursor-tracker",
