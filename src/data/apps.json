@@ -4,7 +4,6 @@
     "title": "See My Eyes",
     "tagline": "See through the lens of others with different eye conditions.",
     "platform": "iOS",
-    "platformIcon": "📱",
     "status": "TestFlight beta",
     "comingSoon": true,
     "primary": {
@@ -21,7 +20,6 @@
     "title": "AI Board Game Rules",
     "tagline": "Ask rules questions in plain English.",
     "platform": "Web",
-    "platformIcon": "🌐",
     "status": "Live now",
     "comingSoon": false,
     "primary": {
@@ -41,17 +39,20 @@
     "id": "video-cursor-tracker",
     "title": "Video Cursor Tracker",
     "tagline": "Highlight cursors in recorded videos.",
-    "platform": "Desktop",
-    "platformIcon": "🖥️",
+    "platform": "Web",
     "status": "Beta",
     "comingSoon": false,
     "primary": {
-      "href": "/video-cursor-tracker",
-      "label": "Learn about Video Cursor Tracker"
+      "href": "https://chromewebstore.google.com/detail/video-cursor-tracker/nhpcfocchlmbnpaplidmdhcejjjmjdoc?authuser=4&hl=en",
+      "label": "Go to Chrome Web Store"
     },
     "secondary": {
       "href": "/privacy/video-cursor-tracker",
       "label": "Privacy Policy"
+    },
+    "tertiary": {
+      "href": "/video-cursor-tracker",
+      "label": "Learn about Video Cursor Tracker"
     }
   }
 ]

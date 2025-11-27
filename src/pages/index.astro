@@ -2,6 +2,20 @@
 import apps from "../data/apps.json";
 import "../styles/global.css";
 const currentYear = new Date().getFullYear();
+
+// Map platform names to icons
+const getPlatformIcon = (platform: string): string => {
+	const iconMap: Record<string, string> = {
+		'iOS': '📱',
+		'Android': '📱',
+		'Web': '🌐',
+		'Desktop': '🖥️',
+		'macOS': '🖥️',
+		'Windows': '🖥️',
+		'Linux': '🖥️',
+	};
+	return iconMap[platform] || '📦';
+};
 ---
 
 <!DOCTYPE html>
@@ -90,7 +104,7 @@ const currentYear = new Date().getFullYear();
 										<h3 class="app-card__title">{app.title}</h3>
 										<div class="app-card__meta" aria-label="App meta information">
 											<span class="app-card__platform">
-												<span aria-hidden="true">{app.platformIcon}</span> {app.platform}
+												<span aria-hidden="true">{getPlatformIcon(app.platform)}</span> {app.platform}
 											</span>
 											{app.status && <span class="app-card__status">{app.status}</span>}
 											{app.comingSoon && <span class="app-card__badge">Coming Soon</span>}
