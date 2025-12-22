@@ -131,7 +131,9 @@ const getPlatformIcon = (platform: string): string => {
 							{app.tertiary && (
 								<a class="app-card__tertiary" href={app.tertiary.href}>{app.tertiary.label}</a>
 							)}
-							<a class="app-card__secondary" href={app.secondary.href}>{app.secondary.label}</a>
+							{app.secondary && (
+								<a class="app-card__secondary" href={app.secondary.href}>{app.secondary.label}</a>
+							)}
 						</article>
 					))}
 				</div>

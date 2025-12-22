@@ -1,5 +1,17 @@
 [
   {
+    "id": "whencanweplay",
+    "title": "When Can We Play?",
+    "tagline": "Find the perfect time to meet! Share a link, drag your availability, done.",
+    "platform": "Web",
+    "status": "Live",
+    "comingSoon": false,
+    "primary": {
+      "href": "https://whencanweplay.com",
+      "label": "Start scheduling"
+    }
+  },
+  {
     "id": "see-my-eyes",
     "title": "See My Eyes",
     "tagline": "See through the lens of others with different eye conditions.",
