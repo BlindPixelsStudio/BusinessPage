@@ -28,23 +28,23 @@
     }
   },
   {
-    "id": "ai-board-game-rules",
-    "title": "AI Board Game Rules",
-    "tagline": "Ask rules questions in plain English.",
+    "id": "rifframp",
+    "title": "RiffRamp",
+    "tagline": "A riff-practice webapp focused on short musical passages, repetition quality, timing feedback, and measurable progress.",
     "platform": "Web",
-    "status": "Live now",
+    "status": "Live",
     "comingSoon": false,
     "primary": {
-      "href": "https://www.boardgamerules.ai",
-      "label": "Open AI Board Game Rules"
-    },
-    "tertiary": {
-      "href": "/ai-board-game-rules",
-      "label": "Learn more"
+      "href": "https://rifframp.vercel.app/",
+      "label": "Start practicing"
     },
     "secondary": {
-      "href": "/privacy/ai-board-game-rules",
+      "href": "/privacy/rifframp",
       "label": "Privacy Policy"
+    },
+    "tertiary": {
+      "href": "/rifframp",
+      "label": "Learn about RiffRamp"
     }
   },
   {

@@ -100,7 +100,7 @@ If your `secondary.href` points to a path like `/privacy/my-new-app`, create:
 	 - `src/pages/privacy/my-new-app.astro`
 2. Use an existing app privacy page as a starting point:
 	 - `src/pages/privacy/see-my-eyes.astro`
-	 - `src/pages/privacy/ai-board-game-rules.astro`
+	 - `src/pages/privacy/rifframp.astro`
 	 - `src/pages/privacy/video-cursor-tracker.astro`
 
 Update:
@@ -109,7 +109,7 @@ Update:
 - The "Last updated" date if needed.
 - The content to accurately describe what data your app collects (if any), how it’s used, and user rights.
 
-If your app collects **no** data and runs fully locally, keep the wording similar to **See My Eyes** or **Video Cursor Tracker**. If it calls external APIs or stores user data, mirror the more detailed structure from **AI Board Game Rules**.
+If your app collects **no** data and runs fully locally, keep the wording similar to **See My Eyes** or **Video Cursor Tracker**. If it calls external APIs or stores user data, mirror the more detailed structure from **RiffRamp**.
 
 ### 5. Testing your changes locally
 
