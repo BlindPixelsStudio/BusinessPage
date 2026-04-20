@@ -16,15 +16,19 @@
     "title": "See My Eyes",
     "tagline": "See through the lens of others with different eye conditions.",
     "platform": "iOS",
-    "status": "TestFlight beta",
-    "comingSoon": true,
+    "status": "Live",
+    "comingSoon": false,
     "primary": {
-      "href": "/see-my-eyes",
-      "label": "Learn about See My Eyes"
+      "href": "https://apps.apple.com/us/app/see-my-eyes/id6755744773",
+      "label": "Download on the App Store"
     },
     "secondary": {
       "href": "/privacy/see-my-eyes",
       "label": "Privacy Policy"
+    },
+    "tertiary": {
+      "href": "/see-my-eyes",
+      "label": "Learn about See My Eyes"
     }
   },
   {
@@ -32,19 +36,15 @@
     "title": "RiffRamp",
     "tagline": "A riff-practice webapp focused on short musical passages, repetition quality, timing feedback, and measurable progress.",
     "platform": "Web",
-    "status": "Live",
+    "status": "Coming soon",
     "comingSoon": false,
     "primary": {
-      "href": "https://rifframp.vercel.app/",
-      "label": "Start practicing"
+      "href": "/rifframp",
+      "label": "Learn about RiffRamp"
     },
     "secondary": {
       "href": "/privacy/rifframp",
       "label": "Privacy Policy"
-    },
-    "tertiary": {
-      "href": "/rifframp",
-      "label": "Learn about RiffRamp"
     }
   },
   {
