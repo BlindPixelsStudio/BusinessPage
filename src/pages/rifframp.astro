@@ -1,4 +1,7 @@
 ---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 const pageTitle = "RiffRamp – Blind Pixels Studio";
 ---
 
@@ -14,8 +17,8 @@ const pageTitle = "RiffRamp – Blind Pixels Studio";
     />
   </head>
   <body class="page">
-    <main class="detail layout" aria-labelledby="rifframp-heading">
-      <a class="detail__back" href="/">← Back to Blind Pixels Studio</a>
+    <Nav />
+    <main id="main-content" class="detail layout" aria-labelledby="rifframp-heading">
       <header class="detail__header">
         <p class="detail__eyebrow">Web app</p>
         <h1 id="rifframp-heading">RiffRamp</h1>
@@ -47,33 +50,13 @@ const pageTitle = "RiffRamp – Blind Pixels Studio";
         </p>
       </section>
     </main>
+    <Footer />
   </body>
   <style lang="css">
-    body.page {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at top left, #14213d 0%, #07090f 60%);
-      color: #f9fafb;
-    }
-
     .layout {
       width: min(960px, 100% - 3rem);
       margin: 0 auto;
       padding: 3.5rem 0 4rem;
-    }
-
-    .detail__back {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      color: #bfdbfe;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .detail__back:hover,
-    .detail__back:focus {
-      text-decoration: underline;
     }
 
     .detail__header h1 {

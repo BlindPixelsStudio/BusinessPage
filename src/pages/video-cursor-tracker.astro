@@ -1,4 +1,7 @@
 ---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 const pageTitle = "Video Cursor Tracker – Blind Pixels Studio";
 ---
 
@@ -14,8 +17,8 @@ const pageTitle = "Video Cursor Tracker – Blind Pixels Studio";
     />
   </head>
   <body class="page">
-    <main class="detail layout" aria-labelledby="video-cursor-tracker-heading">
-      <a class="detail__back" href="/">← Back to Blind Pixels Studio</a>
+    <Nav />
+    <main id="main-content" class="detail layout" aria-labelledby="video-cursor-tracker-heading">
       <header class="detail__header">
         <p class="detail__eyebrow">Browser Extension</p>
         <h1 id="video-cursor-tracker-heading">Video Cursor Tracker</h1>
@@ -42,37 +45,17 @@ const pageTitle = "Video Cursor Tracker – Blind Pixels Studio";
       <section class="detail__section">
         <h2>Get the Web Extension</h2>
         <p>
-          <a href="https://chromewebstore.google.com/detail/video-cursor-tracker/nhpcfocchlmbnpaplidmdhcejjjmjdoc?authuser=4&hl=en">Chrome Web Store</a>
+          <a href="https://chromewebstore.google.com/detail/video-cursor-tracker/nhpcfocchlmbnpaplidmdhcejjjmjdoc?authuser=4&hl=en" target="_blank" rel="noopener noreferrer">Chrome Web Store<span class="sr-only"> (opens in a new tab)</span></a>
         </p>
       </section>
     </main>
+    <Footer />
   </body>
   <style lang="css">
-    body.page {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at top left, #14213d 0%, #07090f 60%);
-      color: #f9fafb;
-    }
-
     .layout {
       width: min(960px, 100% - 3rem);
       margin: 0 auto;
       padding: 3.5rem 0 4rem;
-    }
-
-    .detail__back {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      color: #bfdbfe;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .detail__back:hover,
-    .detail__back:focus {
-      text-decoration: underline;
     }
 
     .detail__header h1 {

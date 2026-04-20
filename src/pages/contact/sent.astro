@@ -1,4 +1,7 @@
 ---
+import "../../styles/global.css";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
 const pageTitle = "Message sent – Blind Pixels Studio";
 ---
 
@@ -14,8 +17,8 @@ const pageTitle = "Message sent – Blind Pixels Studio";
     />
   </head>
   <body class="page">
-    <main class="layout" aria-labelledby="sent-heading">
-      <a class="sent__back" href="/">← Back to Blind Pixels Studio</a>
+    <Nav />
+    <main id="main-content" class="layout" aria-labelledby="sent-heading">
       <section class="sent__card">
         <h1 id="sent-heading">Message sent</h1>
         <p>
@@ -28,33 +31,13 @@ const pageTitle = "Message sent – Blind Pixels Studio";
         <a class="sent__primary" href="/">Return to homepage</a>
       </section>
     </main>
+    <Footer />
   </body>
   <style lang="css">
-    body.page {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at top left, #14213d 0%, #07090f 60%);
-      color: #f9fafb;
-    }
-
     .layout {
       width: min(720px, 100% - 3rem);
       margin: 0 auto;
       padding: 3.5rem 0 5rem;
-    }
-
-    .sent__back {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      color: #bfdbfe;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .sent__back:hover,
-    .sent__back:focus {
-      text-decoration: underline;
     }
 
     .sent__card {
