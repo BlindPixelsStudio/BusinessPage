@@ -159,6 +159,21 @@ body.page {
 	text-decoration: underline;
 }
 
+/* ── In-content links ────────────────────────────── */
+/* Any unclassed link inside the main content area gets a
+   consistent, high-contrast style with a persistent underline so
+   links are never distinguished by color alone (WCAG 1.4.1). */
+main a:not([class]) {
+	color: #93c5fd;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+main a:not([class]):hover,
+main a:not([class]):focus {
+	color: #bfdbfe;
+}
+
 /* ── Responsive nav ──────────────────────────────── */
 @media (max-width: 640px) {
 	.top-nav__container {
@@ -176,5 +191,28 @@ body.page {
 
 	.top-nav__links a {
 		font-size: 0.875rem;
+	}
+}
+
+/* ── Windows High Contrast / forced-colors ───────── */
+/* In forced-colors mode, background gradients and box-shadows are
+   removed, so elements distinguished only by a filled background
+   (buttons, chips, cards) need explicit borders to keep their shape. */
+@media (forced-colors: active) {
+	.skip-link,
+	.support-button,
+	.support-cta,
+	.primary-cta,
+	.contact__submit,
+	.app-card,
+	.app-card__primary,
+	.app-card__badge,
+	.app-card__platform,
+	.app-card__status {
+		border: 1px solid ButtonBorder;
+	}
+
+	*:focus-visible {
+		outline-color: Highlight;
 	}
 }

@@ -25,14 +25,27 @@ const pageTitle = "Contact – Blind Pixels Studio";
           Have a question, idea, or accessibility request? Send a message using the
           form below.
         </p>
+        <p class="contact__required-legend">
+          Fields marked with an asterisk (<span class="required-mark" aria-hidden="true">*</span>) are required.
+        </p>
       </header>
+      <div
+        id="form-errors"
+        class="form-errors"
+        role="alert"
+        aria-live="assertive"
+        tabindex="-1"
+        hidden
+      >
+      </div>
       <form class="contact__form" method="post" action="/api/contact">
         <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
+          <label for="name">Name <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" />
+          <p id="name-error" class="field__error" hidden></p>
         </div>
         <div class="field">
-          <label for="email">Email</label>
+          <label for="email">Email <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
           <input
             id="email"
             name="email"
@@ -40,21 +53,26 @@ const pageTitle = "Contact – Blind Pixels Studio";
             inputmode="email"
             autocomplete="email"
             required
+            aria-describedby="email-error"
           />
+          <p id="email-error" class="field__error" hidden></p>
         </div>
         <div class="field">
-          <label for="subject">Subject</label>
+          <label for="subject">Subject <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
           <input
             id="subject"
             name="subject"
             type="text"
             autocomplete="off"
             required
+            aria-describedby="subject-error"
           />
+          <p id="subject-error" class="field__error" hidden></p>
         </div>
         <div class="field"> 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
+          <label for="message">Message <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+          <textarea id="message" name="message" rows="6" required aria-describedby="message-error"></textarea>
+          <p id="message-error" class="field__error" hidden></p>
         </div>
         <button class="contact__submit" type="submit">Send message</button>
         <p class="contact__note">
@@ -64,6 +82,86 @@ const pageTitle = "Contact – Blind Pixels Studio";
       </form>
     </main>
     <Footer />
+    <script>
+      const form = document.querySelector(".contact__form") as HTMLFormElement | null;
+      const summary = document.getElementById("form-errors");
+
+      if (form && summary) {
+        // Disable native validation only when JS is available, so users
+        // without JS still get built-in required-field validation.
+        form.noValidate = true;
+        const fields = Array.from(
+          form.querySelectorAll("input, textarea")
+        ) as (HTMLInputElement | HTMLTextAreaElement)[];
+
+        const fieldName = (el: HTMLInputElement | HTMLTextAreaElement) => {
+          const label = form.querySelector('label[for="' + el.id + '"]');
+          if (!label || !label.textContent) return el.name;
+          return label.textContent.replace("*", "").replace("(required)", "").trim();
+        };
+
+        const setError = (
+          el: HTMLInputElement | HTMLTextAreaElement,
+          message: string
+        ) => {
+          const error = document.getElementById(el.id + "-error");
+          el.setAttribute("aria-invalid", "true");
+          if (error) {
+            error.textContent = message;
+            error.hidden = false;
+          }
+        };
+
+        const clearError = (el: HTMLInputElement | HTMLTextAreaElement) => {
+          const error = document.getElementById(el.id + "-error");
+          el.removeAttribute("aria-invalid");
+          if (error) {
+            error.textContent = "";
+            error.hidden = true;
+          }
+        };
+
+        fields.forEach((el) => {
+          el.addEventListener("input", () => {
+            if (el.checkValidity()) clearError(el);
+          });
+        });
+
+        form.addEventListener("submit", (event) => {
+          const invalid: { id: string; message: string }[] = [];
+          fields.forEach((el) => {
+            if (el.checkValidity()) {
+              clearError(el);
+            } else {
+              const name = fieldName(el);
+              const message = el.validity.valueMissing
+                ? name + " is required."
+                : "Please enter a valid " + name.toLowerCase() + ".";
+              setError(el, message);
+              invalid.push({ id: el.id, message });
+            }
+          });
+
+          if (invalid.length === 0) {
+            summary.hidden = true;
+            return;
+          }
+
+          event.preventDefault();
+          const heading =
+            invalid.length === 1
+              ? "Please fix the following error:"
+              : "Please fix the following " + invalid.length + " errors:";
+          const items = invalid
+            .map((item) => '<li><a href="#' + item.id + '">' + item.message + "</a></li>")
+            .join("");
+          summary.innerHTML =
+            '<p class="form-errors__title">' + heading + "</p><ul>" + items + "</ul>";
+          summary.hidden = false;
+          summary.focus();
+        });
+      }
+    </script>
   </body>
   <style lang="css">
     .layout {
@@ -115,11 +213,16 @@ const pageTitle = "Contact – Blind Pixels Studio";
       background: rgba(15, 23, 42, 0.9);
     }
 
-    .field input:focus,
-    .field textarea:focus {
-      outline: 2px solid rgba(96, 165, 250, 0.8);
-      outline-offset: 1px;
+    .field input:focus-visible,
+    .field textarea:focus-visible {
+      outline: 3px solid #60a5fa;
+      outline-offset: 2px;
       border-color: transparent;
+    }
+
+    .field input[aria-invalid="true"],
+    .field textarea[aria-invalid="true"] {
+      border-color: #f87171;
     }
 
     .contact__submit {
@@ -145,8 +248,51 @@ const pageTitle = "Contact – Blind Pixels Studio";
 
     .contact__note {
       margin-top: 1rem;
-      font-size: 0.85rem;
+      font-size: 0.9375rem;
       color: rgba(156, 163, 175, 0.95);
+    }
+
+    .contact__required-legend {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      color: rgba(226, 232, 255, 0.86);
+    }
+
+    .required-mark {
+      color: #fca5a5;
+      font-weight: 700;
+    }
+
+    .form-errors {
+      margin-top: 2rem;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      background: rgba(220, 38, 38, 0.12);
+      border: 1px solid #f87171;
+      color: #fecaca;
+    }
+
+    .form-errors__title {
+      margin: 0 0 0.5rem;
+      font-weight: 700;
+      color: #fecaca;
+    }
+
+    .form-errors ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .form-errors a {
+      color: #fecaca;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .field__error {
+      margin: 0.35rem 0 0;
+      font-size: 0.9rem;
+      color: #fca5a5;
     }
 
     @media (max-width: 640px) {
