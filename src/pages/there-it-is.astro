@@ -1,0 +1,196 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+const pageTitle = "There It Is! – Blind Pixels Studio";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta
+      name="description"
+      content="There It Is! helps low-vision, color-blind, and elderly users scan the floor for possible dropped objects using on-device camera guidance, on-screen highlights, haptics, and screen-reader support."
+    />
+  </head>
+
+  <body class="page">
+    <Nav />
+    <main id="main-content" class="detail layout" aria-labelledby="there-it-is-heading">
+
+      <header class="detail__header">
+        <p class="detail__eyebrow">App</p>
+        <h1 id="there-it-is-heading">There It Is!</h1>
+        <p class="detail__lede">
+          There It Is! helps you scan the floor for possible dropped objects. Point
+          your device at the floor and it looks for possible items in the live
+          camera view, highlights the area on screen, tells you where it is, and
+          gives a haptic cue — all processed entirely on-device.
+        </p>
+      </header>
+
+      <section class="detail__section">
+        <h2>Who it's for</h2>
+        <p>
+          There It Is! is designed for anyone who wants an extra aid when something
+          small has been dropped. It's especially helpful for:
+        </p>
+        <ul>
+          <li>People with low vision looking for a dropped item on the floor</li>
+          <li>Color-blind users who find some objects hard to pick out</li>
+          <li>Elderly users who want a little extra help scanning the floor</li>
+          <li>Anyone searching for a small object that's tricky to spot</li>
+        </ul>
+      </section>
+
+      <section class="detail__section">
+        <h2>What it does</h2>
+        <ul>
+          <li>Scans the live camera view for possible dropped objects on the floor</li>
+          <li>Highlights the area on screen and describes where it is (left, center, or right)</li>
+          <li>Gives haptic cues so you can feel when a possible object is spotted</li>
+          <li>Works with VoiceOver and TalkBack, reading the on-screen status aloud</li>
+          <li>Offers a high-contrast display and large, easy-to-reach controls</li>
+          <li>Includes an optional flashlight to help in low light, where your device supports it</li>
+        </ul>
+      </section>
+
+      <section class="detail__section">
+        <h2>How it works</h2>
+        <p>
+          Scanning starts automatically once the camera is ready — there's no
+          "Start" button to find. As you move your device across the floor, There
+          It Is! processes each frame on your device and updates the highlight,
+          spoken status, and haptics in real time so cues follow the object as the
+          camera moves.
+        </p>
+      </section>
+
+      <section class="detail__section">
+        <h2>Your privacy</h2>
+        <ul>
+          <li>Camera frames are processed entirely on your device</li>
+          <li>Images are not saved and not uploaded</li>
+          <li>Works offline — no account and no network required</li>
+          <li>No tracking, no ads, and no analytics</li>
+        </ul>
+      </section>
+
+      <aside class="detail__note" role="note" aria-labelledby="safety-heading">
+        <h2 id="safety-heading">Please keep in mind</h2>
+        <p>
+          There It Is! may miss objects or highlight the wrong area. Please use it
+          as an aid, not as your only safety tool.
+        </p>
+        <p>
+          It can help locate possible pill-shaped objects, but it cannot identify
+          medication or confirm that an item is safe to handle or take.
+        </p>
+      </aside>
+
+      <section class="detail__section">
+        <h2>Get the app</h2>
+        <p>
+          There It Is! is currently in beta testing on iOS and Android. If you'd
+          like to help test it, get in touch and we'll add you to the beta.
+        </p>
+        <a href="/contact" class="detail__cta">Join the beta</a>
+      </section>
+    </main>
+    <Footer />
+  </body>
+
+  <style lang="css">
+    .layout {
+      width: min(960px, 100% - 3rem);
+      margin: 0 auto;
+      padding: 3.5rem 0 4rem;
+    }
+
+    .detail__header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 2.8rem);
+    }
+
+    .detail__eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      color: rgba(191, 219, 254, 0.8);
+      margin-bottom: 0.75rem;
+    }
+
+    .detail__lede {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(226, 232, 255, 0.86);
+    }
+
+    .detail__section {
+      margin-top: 2.5rem;
+    }
+
+    .detail__section h2 {
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    .detail__section p,
+    .detail__section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(226, 232, 255, 0.9);
+    }
+
+    .detail__section ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .detail__note {
+      margin-top: 2.5rem;
+      padding: 1.5rem 1.75rem;
+      border-radius: 16px;
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+    }
+
+    .detail__note h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.2rem;
+      color: #fbbf24;
+    }
+
+    .detail__note p {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(226, 232, 255, 0.9);
+    }
+
+    .detail__note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail__cta {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .detail__cta:hover,
+    .detail__cta:focus {
+      background: #1d4ed8;
+    }
+  </style>
+</html>
