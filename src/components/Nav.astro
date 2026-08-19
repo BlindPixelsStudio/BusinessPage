@@ -4,17 +4,20 @@ interface Props {
 }
 const { isHome = false } = Astro.props;
 const prefix = isHome ? "" : "/";
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isHomePage = currentPath === "/";
+const isContactPage = currentPath === "/contact";
 ---
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="top-nav" aria-label="Primary navigation">
   <div class="top-nav__container">
-    <a href="/" class="top-nav__logo">Blind Pixels Studio</a>
+    <a href="/" class="top-nav__logo" aria-current={isHomePage ? "page" : undefined}>Blind Pixels Studio</a>
     <ul class="top-nav__links">
       <li><a href={`${prefix}#about`}>About</a></li>
       <li><a href={`${prefix}#apps`}>Apps &amp; Tools</a></li>
       <li><a href={`${prefix}#support`}>Support</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/contact" aria-current={isContactPage ? "page" : undefined}>Contact</a></li>
     </ul>
   </div>
 </nav>

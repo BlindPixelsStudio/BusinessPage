@@ -2,6 +2,7 @@
   {
     "id": "whencanweplay",
     "title": "When Can We Play?",
+    "icon": "/Assets/app-whencanweplay.png",
     "tagline": "Find the perfect time to meet! Share a link, drag your availability, done.",
     "platform": "Web",
     "status": "Live",
@@ -14,17 +15,18 @@
   {
     "id": "see-my-eyes",
     "title": "See My Eyes",
+    "icon": "/Assets/app-see-my-eyes.webp",
     "tagline": "See through the lens of others with different eye conditions.",
-    "platform": "iOS",
+    "platform": "iOS & Android",
     "status": "Live",
     "comingSoon": false,
     "primary": {
+      "href": "https://play.google.com/store/apps/details?id=com.blindpixelsstudio.seemyeyes",
+      "label": "Download on Google Play"
+    },
+    "store": {
       "href": "https://apps.apple.com/us/app/see-my-eyes/id6755744773",
       "label": "Download on the App Store"
-    },
-    "secondary": {
-      "href": "/privacy/see-my-eyes",
-      "label": "Privacy Policy"
     },
     "tertiary": {
       "href": "/see-my-eyes",
@@ -34,6 +36,7 @@
   {
     "id": "rifframp",
     "title": "RiffRamp",
+    "icon": null,
     "tagline": "A riff-practice webapp focused on short musical passages, repetition quality, timing feedback, and measurable progress.",
     "platform": "Web",
     "status": "Coming soon",
@@ -41,15 +44,12 @@
     "primary": {
       "href": "/rifframp",
       "label": "Learn about RiffRamp"
-    },
-    "secondary": {
-      "href": "/privacy/rifframp",
-      "label": "Privacy Policy"
     }
   },
   {
     "id": "video-cursor-tracker",
     "title": "Video Cursor Tracker",
+    "icon": "/Assets/app-video-cursor-tracker.png",
     "tagline": "Highlight cursors in recorded videos.",
     "platform": "Web",
     "status": "Beta",
@@ -57,10 +57,6 @@
     "primary": {
       "href": "https://chromewebstore.google.com/detail/video-cursor-tracker/nhpcfocchlmbnpaplidmdhcejjjmjdoc?authuser=4&hl=en",
       "label": "Go to Chrome Web Store"
-    },
-    "secondary": {
-      "href": "/privacy/video-cursor-tracker",
-      "label": "Privacy Policy"
     },
     "tertiary": {
       "href": "/video-cursor-tracker",
@@ -70,6 +66,7 @@
   {
     "id": "there-it-is",
     "title": "There It Is!",
+    "icon": "/Assets/app-there-it-is.png",
     "tagline": "Scan the floor to spot objects you may have dropped.",
     "platform": "iOS & Android",
     "status": "Beta",

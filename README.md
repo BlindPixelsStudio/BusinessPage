@@ -13,6 +13,7 @@ The apps shown on the homepage are driven by a JSON config file so you can add o
 - Tailwind 4 (via `@tailwindcss/vite`)
 - Deployed on Vercel using [`@astrojs/vercel`](https://docs.astro.build/en/guides/integrations-guide/vercel/)
 - Contact form email delivery via [Resend](https://resend.com/)
+- Requires Node 24 for local development and deployment compatibility with Vercel's supported runtime
 
 ---
 
